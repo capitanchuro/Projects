@@ -18,12 +18,14 @@ List<List<int>>& ConnectFour::list() {
 
 int ConnectFour::win(int y, int x, int v, int u, int n) {
 	int r = y, c = x, count = 0;
+
 	while ((r >= 0 && c >= 0) && (r < grid.size() && c < grid[r].size())) {
 
 		if (grid[r][c] == units[turn])
 			count++;
 		else
 			break;
+
 		r += v, c += u;
 	}
 
