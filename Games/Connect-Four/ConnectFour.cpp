@@ -32,27 +32,28 @@ int ConnectFour::win(int y, int x, int v, int u, int n) {
 	r = y, c = x;
 
 	while ((r >= 0 && c >= 0) && (r < grid.size() && c < grid[r].size())) {
+
 		if (grid[r][c] == units[turn] && (r != y || c != x))
 			count++;
 		else if (r != y || c != x)
 			break;
 
 		r += v * -1, c += u * -1;
+
 	}
 
 	if (count == 4)
 		return units[turn];
 	else if (n < 4) {
 		if (v + u == -1)
-			win(y, x, v, 1, ++n);
+			return win(y, x, v, 1, ++n);
 		else if (v + u == 0)
-			win(y, x, 0, u, ++n);
+			return win(y, x, 0, u, ++n);
 		else
-			win(y, x, 1, u, ++n);
+			return win(y, x, 1, u, ++n);
 	}
-	else {
+	else
 		return 0;
-	}
 }
 
 
